@@ -1,24 +1,14 @@
-import React from "react";
+import { toast } from "react-toastify";
 
-export default function TextInput({
-  name,
-  type,
-  onChange,
-  placeholder,
-  value,
-  label,
-}) {
-  return (
-    <div className="d-flex flex-column align-items-start">
-      <label className="form-label">{label}</label>
-      <input
-        type={type}
-        className="form-control"
-        placeholder={placeholder}
-        name={name}
-        value={value}
-        onChange={onChange}
-      />
-    </div>
-  );
+export default function errorHandler(error) {
+  if (error) {
+    let message;
+    if (error.response) {
+      message = error.response.data.msg;
+
+      if (typeof message === "string") toast.error(message);
+
+      return Promise.reject(error);
+    }
+  }
 }

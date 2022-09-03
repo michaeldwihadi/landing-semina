@@ -3,7 +3,7 @@ import Brand from "../components/Brand";
 import Navbar from "../components/Navbar";
 import FormSignup from "../components/FormSignup";
 
-export default function Home() {
+export default function Signin() {
   return (
     <>
       <Head>
